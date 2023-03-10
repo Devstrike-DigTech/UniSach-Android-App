@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2023.
+  ~ Richard Uzor
+  ~ Under the Authority of Devstrike Digital Ltd.
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreen">
+
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="org.devstrike.apps.android.unisach.storeside.SplashScreen"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreen_to_signIn"
+            app:destination="@id/signIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/signIn"
+        android:name="org.devstrike.apps.android.unisach.storeside.features.auth.ui.SignIn"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signIn_to_signUp"
+            app:destination="@id/signUp" />
+        <action
+            android:id="@+id/action_signIn_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUp"
+        android:name="org.devstrike.apps.android.unisach.storeside.features.auth.ui.SignUp"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUp_to_pharmacyProfileReg"
+            app:destination="@id/pharmacyProfileReg" />
+        <action
+            android:id="@+id/action_signUp_to_signIn"
+            app:destination="@id/signIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/pharmacyProfileReg"
+        android:name="org.devstrike.apps.android.unisach.storeside.features.auth.ui.pharmacyregistration.PharmacyProfileReg"
+        android:label="fragment_pharmacy_profile_reg"
+        tools:layout="@layout/fragment_pharmacy_profile_reg" >
+        <action
+            android:id="@+id/action_pharmacyProfileReg_to_pharmacyAddressReg"
+            app:destination="@id/pharmacyAddressReg"
+            app:enterAnim="@anim/forward_entrance_from_right"
+            app:exitAnim="@anim/forward_exit_to_left"
+            app:popEnterAnim="@anim/forward_entrance_from_right"
+            app:popExitAnim="@anim/forward_exit_to_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/pharmacyAddressReg"
+        android:name="org.devstrike.apps.android.unisach.storeside.features.auth.ui.pharmacyregistration.PharmacyAddressReg"
+        android:label="fragment_pharmacy_address_reg"
+        tools:layout="@layout/fragment_pharmacy_address_reg" >
+        <action
+            android:id="@+id/action_pharmacyAddressReg_to_pharmacyOthersReg"
+            app:destination="@id/pharmacyOthersReg"
+            app:enterAnim="@anim/forward_entrance_from_right"
+            app:exitAnim="@anim/forward_exit_to_left"
+            app:popEnterAnim="@anim/forward_entrance_from_right"
+            app:popExitAnim="@anim/forward_exit_to_left" />
+        <action
+            android:id="@+id/action_pharmacyAddressReg_to_pharmacyProfileReg"
+            app:destination="@id/pharmacyProfileReg"
+            app:enterAnim="@anim/backward_entrance_from_left"
+            app:exitAnim="@anim/backward_exit_to_right"
+            app:popEnterAnim="@anim/backward_entrance_from_left"
+            app:popExitAnim="@anim/backward_exit_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/pharmacyOthersReg"
+        android:name="org.devstrike.apps.android.unisach.storeside.features.auth.ui.pharmacyregistration.PharmacyOthersReg"
+        android:label="fragment_pharmacy_others_reg"
+        tools:layout="@layout/fragment_pharmacy_others_reg" >
+        <action
+            android:id="@+id/action_pharmacyOthersReg_to_pharmacyAddressReg"
+            app:destination="@id/pharmacyAddressReg"
+            app:enterAnim="@anim/backward_entrance_from_left"
+            app:exitAnim="@anim/backward_exit_to_right"
+            app:popEnterAnim="@anim/backward_entrance_from_left"
+            app:popExitAnim="@anim/backward_exit_to_right" />
+        <action
+            android:id="@+id/action_pharmacyOthersReg_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/home2"
+        android:name="org.devstrike.apps.android.unisach.storeside.features.home.ui.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+</navigation>

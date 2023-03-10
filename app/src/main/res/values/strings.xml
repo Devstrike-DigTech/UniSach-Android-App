@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Project UniSach (Store Side)</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_in_title">Sign In</string>
+    <string name="sign_in_subtitle">Enter details to sign in</string>
+    <string name="account_btn_login">Sign In</string>
+    <string name="account_log_in_forgot_password_prompt">Forgot Password</string>
+    <string name="sign_in_email">Entered Your Registered Email</string>
+    <string name="account_not_logged_in_create_account">No account yet? Register here</string>
+    <string name="sign_in_password">Enter Your Password</string>
+    <string name="sign_up_title">Sign Up</string>
+    <string name="sign_up_subtitle">Enter details to sign up</string>
+    <string name="sign_up_email">Enter Your Email</string>
+    <string name="sign_up_full_name">Enter Your Full Name</string>
+    <string name="sign_up_password">Enter Your Desired Password</string>
+    <string name="sign_up_confirm_password">Re-enter Your Desired Password</string>
+    <string name="sign_up_phone_number">Enter Your Contact Phone Number</string>
+    <string name="sign_up_license_number">Enter Your License Number</string>
+    <string name="sign_up_login_prompt">Have an account? Login Here</string>
+    <string name="account_btn_sign_up">Register</string>
+    <string name="text_one">1</string>
+    <string name="profile_text">Profile</string>
+    <string name="text_two">2</string>
+    <string name="address_text">Address</string>
+    <string name="text_three">3</string>
+    <string name="others_text">Others</string>
+    <string name="register_pharmacy_title">Register Pharmacy</string>
+    <string name="register_pharmacy_subtitle">Enter details to register pharmacy</string>
+    <string name="register_pharmacy_name">Enter Pharmacy Name</string>
+    <string name="register_pharmacy_email">Enter Pharmacy Email</string>
+    <string name="register_pharmacy_phone_number">Enter Pharmacy Phone Number</string>
+    <string name="register_pharmacy_type">Choose Pharmacy Type</string>
+    <string name="register_pharmacy_motto">Enter Pharmacy Motto/ Description</string>
+    <string name="next_text">Next</string>
+    <string name="register_pharmacy_address_line">Address Line</string>
+    <string name="register_pharmacy_address_district">District</string>
+    <string name="register_pharmacy_address_state">Pharmacy Address State</string>
+    <string name="register_pharmacy_address_lga">Choose Pharmacy Address LGA</string>
+    <string name="register_pharmacy_address_city">Enter Pharmacy Address City</string>
+    <string name="back_text">Back</string>
+    <string name="register_pharmacy_license_no">Enter Pharmacy License Number</string>
+    <string name="register_pharmacy_description">Enter Pharmacy Description</string>
+    <string name="pharmacy_reg_image_3">Select Pharmacy Images</string>
+    <string name="finish_text">Finish</string>
+    <string name="devstrike_logo">Powered by DevStrike</string>
+    <string name="powered_by_text">Powered by</string>
+    <string name="dev_strike_text">Devstrike Inc.</string>
+    <string name="home_fragment">Registration Complete!!</string>
+    <string name="good_morning_text">Good morning, user</string>
+    <string name="health_tip_dummy_text">This a dummy health tip for pharmacist</string>
+    <string name="toolbar_iv_account">User account menu option</string>
+    <string name="inventory_title">Inventory</string>
+    <string name="inventory_menu_metric">30 of 250</string>
+    <string name="reservation_title">Reservations</string>
+    <string name="reservation_menu_metric">0 Active</string>
+    <string name="store_profile_title">Store Profile</string>
+    <string name="store_profile_menu_metric">Verification Status</string>
+    <string name="plan_title">Payment Plan</string>
+    <string name="plan_menu_metric">Level 2</string>
+
+    <array name="reg_steps">
+        <item>Profile</item>
+        <item>Address</item>
+        <item>Others</item>
+    </array>
+</resources>

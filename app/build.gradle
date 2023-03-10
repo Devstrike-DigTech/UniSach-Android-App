@@ -1,0 +1,168 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+
+}
+
+android {
+    namespace 'org.devstrike.apps.android.unisach.storeside'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "org.devstrike.apps.android.unisach.storeside"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    dataBinding {
+        enabled = true
+    }
+    buildFeatures{
+        viewBinding true
+    }
+
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.0'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // Navigation Components
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
+
+
+    // architecture
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+
+    // Room
+    implementation "androidx.room:room-runtime:2.5.0"
+    kapt "androidx.room:room-compiler:2.5.0"
+    implementation "androidx.room:room-ktx:2.5.0"
+    implementation "androidx.room:room-rxjava2:2.5.0"
+
+
+    //Dagger - Hilt
+    implementation "com.google.dagger:hilt-android:2.39.1"
+    kapt "com.google.dagger:hilt-android-compiler:2.39.1"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
+    kapt "androidx.hilt:hilt-compiler:1.0.0"
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+    // Dagger Core
+    implementation "com.google.dagger:dagger:2.39.1"
+    kapt "com.google.dagger:dagger-compiler:2.39.1"
+
+// Dagger Android
+    api 'com.google.dagger:dagger-android:2.37'
+    api 'com.google.dagger:dagger-android-support:2.37'
+    kapt 'com.google.dagger:dagger-android-processor:2.37'
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.retrofit2:converter-scalars:2.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2"
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:4.9.0'
+
+    //pagination
+    def paging_version = "3.1.0-alpha03" //current version at the time
+
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+
+    implementation "androidx.paging:paging-runtime:$paging_version"
+
+    // alternatively - without Android dependencies for tests
+    testImplementation "androidx.paging:paging-common:$paging_version"
+
+    // optional - RxJava2 support
+    implementation "androidx.paging:paging-rxjava2:$paging_version"
+
+    // optional - RxJava3 support
+    implementation "androidx.paging:paging-rxjava3:$paging_version"
+
+    // optional - Guava ListenableFuture support
+    implementation "androidx.paging:paging-guava:$paging_version"
+
+
+    //data-store
+    implementation "androidx.datastore:datastore-preferences:1.0.0-rc02"
+
+    // Swipe refresh layout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    //Glide Image
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+
+    //Circular Imageview
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //Android YouTube Player
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:11.1.0'
+
+    // dependency for using facebook shimmer layout.
+
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    //Lottie Animation
+
+    //Lottie Animation
+    implementation "com.airbnb.android:lottie:4.2.0"
+    implementation 'io.github.amrdeveloper:lottiedialog:1.0.0'
+
+    //calendar event adder
+    //implementation 'com.github.thellimist:ez-calendar:1.0.2'
+
+    //run-time permission manager
+    implementation 'com.karumi:dexter:5.0.0'
+
+    //circle menu
+    //implementation 'com.github.Hitomis:CircleMenu:v1.1.0'
+
+    //location detector
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+
+//    //step view
+//    implementation 'com.shuhart.stepview:stepview:1.5.1'
+//
+//    implementation 'com.github.baoyachi.StepView:1.9'
+//    implementation 'com.stepstone.stepper:stepper-indicator:3.3.0'
+//    implementation 'com.stepstone.stepper:material-stepper:4.3.1'
+
+
+
+}

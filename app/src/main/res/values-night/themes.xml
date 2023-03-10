@@ -1,0 +1,30 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ProjectUniSachStoreSide" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <!-- Default text fonts. -->
+        <item name="android:textViewStyle">@style/BalsamiqTextViewStyle</item>
+        <item name="buttonStyle">@style/BalsamiqButtonStyle</item>
+
+        <!--        <item name="android:buttonStyleNews">@style/NewsStyle</item>-->
+    </style>
+
+    <style name="BalsamiqTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/balsamiq_sans_regular</item>
+    </style>
+
+    <style name="BalsamiqButtonStyle" parent="android:Widget.Holo.Button">
+        <item name="android:fontFamily">@font/balsamiq_sans_bold</item>
+    </style>
+
+</resources>
