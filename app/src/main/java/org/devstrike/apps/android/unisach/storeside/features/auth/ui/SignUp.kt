@@ -1,6 +1,5 @@
 package org.devstrike.apps.android.unisach.storeside.features.auth.ui
 
-import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
 import android.content.IntentSender
@@ -11,19 +10,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.activity.result.*
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.chaos.view.PinView
-import com.google.android.gms.auth.api.credentials.Credentials
-import com.google.android.gms.auth.api.credentials.HintRequest
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.CommonStatusCodes
@@ -42,7 +35,6 @@ import org.devstrike.apps.android.unisach.storeside.features.auth.data.models.re
 import org.devstrike.apps.android.unisach.storeside.features.auth.repositories.AuthRepoImpl
 import org.devstrike.apps.android.unisach.storeside.network.handleApiError
 import org.devstrike.apps.android.unisach.storeside.utils.*
-import org.devstrike.apps.android.unisach.storeside.utils.Common.CLIENT_ID
 import org.devstrike.apps.android.unisach.storeside.utils.Common.COUNTDOWN_IN_MILLIS
 import org.devstrike.apps.android.unisach.storeside.utils.Common.TAG
 import java.util.*
@@ -203,31 +195,34 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
             findNavController().navigate(navToSignIn)
         }
         accountSignupBtnSignup.setOnClickListener {
-            subscribeToSignUpEvent()
+            val email = binding.signUpEmail.text.toString().trim()
+            val firstName = binding.signUpFirstName.text.toString().trim()
+            val lastName = binding.signUpLastName.text.toString().trim()
+            val password = binding.signUpPassword.text.toString().trim()
+            val confirmPassword = binding.signUpConfirmPassword.text.toString().trim()
+            val phone = binding.signUpPhoneNumber.text.toString().trim()
+            val role = "Pharmacist"
+
+            val signUpRequest = SignUpRequest(
+                email = email,
+                first_name = firstName,
+                last_name = lastName,
+                password = password,
+                phone = phone,
+                role = role
+            )
+
+            Log.d(TAG, "onViewCreated: $password, $confirmPassword")
+
+            subscribeToSignUpEvent(signUpRequest, confirmPassword)
         }
     }
         }
 
 
-    private fun subscribeToSignUpEvent() {
+    private fun subscribeToSignUpEvent(signUpRequest: SignUpRequest, confirmPassword: String) {
 
-        val email = binding.signUpEmail.text.toString().trim()
-        val firstName = binding.signUpFirstName.toString().trim()
-        val lastName = binding.signUpLastName.toString().trim()
-        val password = binding.signUpPassword.toString().trim()
-        val confirmPassword = binding.signUpConfirmPassword.toString().trim()
-        val phone = binding.signUpPhoneNumber.toString().trim()
-        val role = "Pharmacist"
-
-        val signUpRequest = SignUpRequest(
-            email = email,
-            first_name = firstName,
-            last_name = lastName,
-            password = password,
-            phone = phone,
-            role = role
-        )
-
+        Log.d(TAG, "subscribeToSignUpEvent: ${signUpRequest.password}, $confirmPassword")
         authViewModel.createAccount(signUpRequest, confirmPassword)
 
         lifecycleScope.launch {
@@ -236,11 +231,11 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
                     is Resource.Success -> {
                         hideProgressBar()
                         // TODO: launch otp bottom sheet
-                        launchBottomSheet(email)
+                        launchBottomSheet(signUpRequest.email)
                         requireContext().toast("Sign up success")
-                        val navToRegisterPharmacy =
-                            SignUpDirections.actionSignUpToPharmacyProfileReg()
-                        findNavController().navigate(navToRegisterPharmacy)
+//                        val navToRegisterPharmacy =
+//                            SignUpDirections.actionSignUpToPharmacyProfileReg()
+//                        findNavController().navigate(navToRegisterPharmacy)
                     }
                     is Resource.Failure -> {
                         hideProgressBar()
@@ -327,8 +322,8 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
         otpVerifyBtn.setOnClickListener {
             val enteredOtp = otpView.text.toString().trim()
             timer.cancel()
-            dialog.dismiss()
-            verifyOtp(email, enteredOtp)
+            verifyOtp(email, enteredOtp, dialog)
+            //dialog.dismiss()
 
         }
 
@@ -373,7 +368,7 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
         }
     }
 
-    private fun verifyOtp(email: String, enteredOtp: String) {
+    private fun verifyOtp(email: String, enteredOtp: String, dialog: BottomSheetDialog) {
         val verifyOtpRequest = VerifyOtpRequest(
             email = email,
             otp = enteredOtp
@@ -384,12 +379,13 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
                 when(result){
                     is Resource.Success ->{
                         hideProgressBar()
+                        dialog.dismiss()
                         val navToPharmReg = SignUpDirections.actionSignUpToPharmacyProfileReg()
                         findNavController().navigate(navToPharmReg)
                     }
                     is Resource.Failure ->{
                         hideProgressBar()
-                        handleApiError(result.error){verifyOtp(email, enteredOtp)}
+                        handleApiError(result.error){verifyOtp(email, enteredOtp, dialog)}
                     }
                     is Resource.Loading ->{
                        showProgressBar()

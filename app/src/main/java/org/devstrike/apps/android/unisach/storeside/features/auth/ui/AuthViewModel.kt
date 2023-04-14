@@ -67,25 +67,25 @@ class AuthViewModel @Inject constructor(
         // input validations
         //input validations
         if (user.email.isEmpty() || user.first_name.isEmpty() || user.last_name.isEmpty() || user.phone.isEmpty() || user.password.isEmpty() || user.role.isEmpty() || confirmPassword.isEmpty()) {
-            _registerState.emit(Resource.Failure(value = SignUpResponse(data = "Some Fields are Empty")))
+            _registerState.emit(Resource.Failure(throwable = Throwable(message = "Some Fields are Empty")))
             return@launch
         }
 
         //email validity check
         if (!isEmailValid(user.email)) {
-            _registerState.emit(Resource.Failure(value = SignUpResponse(data = "Email is not Valid")))
+            _registerState.emit(Resource.Failure(throwable = Throwable(message = "Email is not Valid")))
             return@launch
         }
 
         //password validity check
         if (!isPasswordValid(user.password)) {
-            _registerState.emit(Resource.Failure(value = SignUpResponse(data = "Password length should be between $MINIMUM_PASSWORD_LENGTH and $MAXIMUM_PASSWORD_LENGTH")))
+            _registerState.emit(Resource.Failure(throwable = Throwable(message = "Password length should be between $MINIMUM_PASSWORD_LENGTH and $MAXIMUM_PASSWORD_LENGTH")))
             return@launch
         }
 
         //password double check
         if (user.password != confirmPassword) {
-            _registerState.emit(Resource.Failure(value = SignUpResponse(data = "Password does not match")))
+            _registerState.emit(Resource.Failure(throwable = Throwable(message = "Password does not match")))
             return@launch
         }
 

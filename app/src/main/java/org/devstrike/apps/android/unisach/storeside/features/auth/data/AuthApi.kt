@@ -26,7 +26,7 @@ interface AuthApi {
 
     //MANUAL USER SIGN UP
     @Headers("Content-Type: application/json")
-    @POST("$USER_BASE_URL/api/users/signup")
+    @POST("$USER_BASE_URL/api/users/auth/signup")
     suspend fun createAccount(
         @Body user: SignUpRequest
     ): SignUpResponse

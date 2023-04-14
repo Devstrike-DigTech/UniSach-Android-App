@@ -46,7 +46,7 @@
 
         <com.chaos.view.PinView
             android:id="@+id/otp_view"
-            app:itemCount="4"
+            app:itemCount="6"
             app:itemWidth="50dp"
             app:itemHeight="50dp"
             android:gravity="center"
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:itemBackground="@color/white"
             android:layout_gravity="center"
-            android:inputType="number"
+            android:inputType="text"
             android:cursorVisible="true"
             app:hideLineWhenFilled="false"
             app:itemRadius="10dp"
