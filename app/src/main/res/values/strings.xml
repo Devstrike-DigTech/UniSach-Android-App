@@ -58,6 +58,13 @@
     <string name="store_profile_menu_metric">Verification Status</string>
     <string name="plan_title">Payment Plan</string>
     <string name="plan_menu_metric">Level 2</string>
+    <string name="account_btn_google_sign_up">Google Sign Up</string>
+    <string name="sign_up_first_name">Enter your first name</string>
+    <string name="sign_up_last_name">Enter your last name</string>
+    <string name="otp_message">Check email for OTP </string>
+    <string name="otp_resend_message">Resend OTP in: </string>
+    <string name="unisach_slogan">don\'t stress...just sach</string>
+    <string name="otp_button">Verify</string>
 
     <array name="reg_steps">
         <item>Profile</item>

@@ -10,7 +10,7 @@ package org.devstrike.apps.android.unisach.storeside.base
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.devstrike.app.citrarb.network.Resource
+import org.devstrike.apps.android.unisach.storeside.network.Resource
 import retrofit2.HttpException
 
 /**

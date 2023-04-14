@@ -20,12 +20,21 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.devstrike.apps.android.unisach.storeside.base.BaseFragment
 import org.devstrike.apps.android.unisach.storeside.databinding.FragmentSplashScreenBinding
+import org.devstrike.apps.android.unisach.storeside.features.auth.data.AuthApi
 import org.devstrike.apps.android.unisach.storeside.features.auth.repositories.AuthRepoImpl
 import org.devstrike.apps.android.unisach.storeside.features.auth.ui.AuthViewModel
+import org.devstrike.apps.android.unisach.storeside.utils.SessionManager
+import javax.inject.Inject
+import kotlin.properties.Delegates
 
 @AndroidEntryPoint
 class SplashScreen : BaseFragment<AuthViewModel, FragmentSplashScreenBinding, AuthRepoImpl>() {
 
+    @set:Inject
+    var authApi: AuthApi by Delegates.notNull()
+
+    @set:Inject
+    var sessionManager: SessionManager by Delegates.notNull()
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -60,7 +69,7 @@ class SplashScreen : BaseFragment<AuthViewModel, FragmentSplashScreenBinding, Au
         }
     }
 
-    override fun getFragmentRepo() = AuthRepoImpl()
+    override fun getFragmentRepo() = AuthRepoImpl(authApi, sessionManager)
 
     override fun getViewModel() = AuthViewModel::class.java
 

@@ -47,22 +47,40 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/text_input_layout_sign_up_full_name"
+                    android:id="@+id/text_input_layout_sign_up_first_name"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_mini"
-                    android:hint="@string/sign_up_full_name"
+                    android:hint="@string/sign_up_first_name"
                     android:textColorHint="@color/purple_200">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/sign_up_full_name"
+                        android:id="@+id/sign_up_first_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:contentDescription="@string/sign_up_full_name"
+                        android:contentDescription="@string/sign_up_first_name"
                         android:importantForAutofill="no"
                         android:inputType="textPersonName"
-                        android:labelFor="@id/sign_up_full_name" />
+                        android:labelFor="@id/sign_up_first_name" />
+                </com.google.android.material.textfield.TextInputLayout>
+<com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_input_layout_sign_up_last_name"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_mini"
+                    android:hint="@string/sign_up_last_name"
+                    android:textColorHint="@color/purple_200">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/sign_up_last_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/sign_up_last_name"
+                        android:importantForAutofill="no"
+                        android:inputType="textPersonName"
+                        android:labelFor="@id/sign_up_last_name" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                  <com.google.android.material.textfield.TextInputLayout
@@ -168,22 +186,43 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <Button
-            android:id="@+id/account_signup_btn_signup"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/card_sign_up"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="@dimen/margin_midi"
-            android:backgroundTint="@color/purple_200"
+            android:layout_margin="@dimen/padding_mini"
             android:padding="@dimen/padding_mini"
-            android:text="@string/account_btn_sign_up" />
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:id="@+id/layout_buttons">
+
+
+            <Button
+                android:id="@+id/account_signup_btn_signup"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/custom_color"
+                android:padding="@dimen/padding_mini"
+                android:text="@string/account_btn_sign_up" />
+
+
+            <com.google.android.gms.common.SignInButton
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/purple_200"
+                android:id="@+id/one_tap_sign_in_btn"
+                android:text="@string/account_btn_google_sign_up"
+                />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/account_create_account_log_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/account_signup_btn_signup"
+            android:layout_below="@id/layout_buttons"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:padding="@dimen/padding_mini"

@@ -7,6 +7,7 @@
 package org.devstrike.apps.android.unisach.storeside.features.home.repositories
 
 import org.devstrike.apps.android.unisach.storeside.base.BaseRepo
+import javax.inject.Inject
 
 /**
  * Created by Richard Uzor  on 17/02/2023
@@ -14,6 +15,6 @@ import org.devstrike.apps.android.unisach.storeside.base.BaseRepo
 /**
  * Created by Richard Uzor  on 17/02/2023
  */
-class HomeRepoImpl: HomeRepo, BaseRepo() {
+class HomeRepoImpl @Inject constructor(): HomeRepo, BaseRepo() {
 
 }

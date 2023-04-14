@@ -18,10 +18,12 @@ object Common {
 
     //base url for all api calls
     const val BASE_URL = "https://fair-cyan-crayfish-sock.cyclic.app/"
-    const val USER_BASE_URL = "https://citrab.onrender.com"
+    const val USER_BASE_URL = "https://unisach-dev.onrender.com"
+    const val CLIENT_ID = "238265770728-dihn46ltdik4ocpivg0veuov8mtc80rf.apps.googleusercontent.com"
 
 
     const val JWT_TOKEN_KEY = "jwt_token_key"
+    const val USER_FIRST_NAME_KEY = "user_first_name"
     const val USER_NAME_KEY = "user_name"
     const val USER_EMAIL_KEY = "user_email"
     const val USER_ID_KEY = "user_id"
@@ -38,6 +40,8 @@ object Common {
     //the name of our app database
     const val LOCAL_DB_NAME = "citrarb_db"
     const val TAG = "EQUA"
+
+    const val COUNTDOWN_IN_MILLIS: Long = 180000
 
     //variable to store a link shared from an outside source to open in the app
     var deepLinkNewsUrl = ""

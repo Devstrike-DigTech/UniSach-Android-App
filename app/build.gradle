@@ -156,12 +156,27 @@ dependencies {
     //location detector
     implementation 'com.google.android.gms:play-services-location:21.0.1'
 
+    //google one tap sign in
+    implementation 'com.google.android.gms:play-services-auth:20.1.0'
+
+    //pin view for otp
+//    implementation 'com.github.mukeshsolanki.android-otpview-pinview:otpview:3.1.0'
+  //  implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.1.0'
+
+
+
 //    //step view
 //    implementation 'com.shuhart.stepview:stepview:1.5.1'
 //
 //    implementation 'com.github.baoyachi.StepView:1.9'
 //    implementation 'com.stepstone.stepper:stepper-indicator:3.3.0'
 //    implementation 'com.stepstone.stepper:material-stepper:4.3.1'
+
+  implementation 'io.github.chaosleung:pinview:1.4.4'
+    //implementation 'com.github.criminact:OTPView:1.0.1'
+
+
+
 
 
 

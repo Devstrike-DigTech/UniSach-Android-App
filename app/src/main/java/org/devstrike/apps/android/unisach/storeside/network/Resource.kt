@@ -6,9 +6,7 @@
  *
  */
 
-package org.devstrike.app.citrarb.network
-
-import okhttp3.ResponseBody
+package org.devstrike.apps.android.unisach.storeside.network
 
 /**
  * sealed class that defines the states of a network call and how to handle their received data
@@ -24,6 +22,8 @@ sealed class Resource<out T>(
     class Failure<T>(
         throwable: Throwable? = null, value: T? = null
     ) : Resource<T>(value, throwable)
+
+    //class LocalFailure<String>(errorMessage: String): Resource<String>(errorMessage)
 
     object Loading : Resource<Nothing>()
 }

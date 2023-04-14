@@ -9,6 +9,7 @@
 package org.devstrike.app.citrarb.network
 
 import kotlinx.coroutines.flow.*
+import org.devstrike.apps.android.unisach.storeside.network.Resource
 
 /**
  * this file manages network network bound data fetching
