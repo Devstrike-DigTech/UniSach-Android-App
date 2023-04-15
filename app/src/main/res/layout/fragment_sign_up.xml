@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".features.auth.ui.SignUp">
 
     <RelativeLayout
@@ -12,34 +12,34 @@
 
 
         <TextView
+            android:id="@+id/tv_sign_up_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_mini"
+            android:padding="@dimen/padding_mini"
             android:text="@string/sign_up_title"
             android:textAlignment="center"
-            android:layout_margin="@dimen/padding_mini"
-            android:padding="@dimen/padding_mini"
-            android:textSize="@dimen/text_xxl"
-            android:id="@+id/tv_sign_up_title"/>
+            android:textSize="@dimen/text_xxl" />
 
         <TextView
+            android:id="@+id/tv_sign_up_subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sign_up_subtitle"
-            android:textAlignment="center"
+            android:layout_below="@id/tv_sign_up_title"
             android:layout_margin="@dimen/padding_mini"
             android:padding="@dimen/padding_mini"
-            android:textSize="@dimen/text_l"
-            android:layout_below="@id/tv_sign_up_title"
-            android:id="@+id/tv_sign_up_subtitle"/>
+            android:text="@string/sign_up_subtitle"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_l" />
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_sign_up"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardElevation="@dimen/padding_mini"
             android:layout_centerInParent="true"
             android:layout_margin="@dimen/padding_mini"
             android:padding="@dimen/padding_mini"
-            android:id="@+id/card_sign_up">
+            app:cardElevation="@dimen/padding_mini">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,7 +51,8 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_mini"
+                    android:layout_marginStart="@dimen/padding_mini"
+                    android:layout_marginEnd="@dimen/padding_mini"
                     android:hint="@string/sign_up_first_name"
                     android:textColorHint="@color/purple_200">
 
@@ -64,12 +65,14 @@
                         android:inputType="textPersonName"
                         android:labelFor="@id/sign_up_first_name" />
                 </com.google.android.material.textfield.TextInputLayout>
-<com.google.android.material.textfield.TextInputLayout
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/text_input_layout_sign_up_last_name"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_mini"
+                    android:layout_marginStart="@dimen/padding_mini"
+                    android:layout_marginEnd="@dimen/padding_mini"
                     android:hint="@string/sign_up_last_name"
                     android:textColorHint="@color/purple_200">
 
@@ -83,12 +86,13 @@
                         android:labelFor="@id/sign_up_last_name" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                 <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/text_input_layout_sign_up_email"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_mini"
+                    android:layout_marginStart="@dimen/padding_mini"
+                    android:layout_marginEnd="@dimen/padding_mini"
                     android:hint="@string/sign_up_email"
                     android:textColorHint="@color/purple_200">
 
@@ -107,7 +111,8 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_mini"
+                    android:layout_marginStart="@dimen/padding_mini"
+                    android:layout_marginEnd="@dimen/padding_mini"
                     android:hint="@string/sign_up_password"
                     android:textColorHint="@color/purple_200"
                     app:passwordToggleEnabled="true"
@@ -128,7 +133,8 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_mini"
+                    android:layout_marginStart="@dimen/padding_mini"
+                    android:layout_marginEnd="@dimen/padding_mini"
                     android:hint="@string/sign_up_confirm_password"
                     android:textColorHint="@color/purple_200"
                     app:passwordToggleEnabled="true"
@@ -144,12 +150,13 @@
                         android:labelFor="@id/sign_in_password" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                 <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/text_input_layout_sign_up_phone_number"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_mini"
+                    android:layout_marginStart="@dimen/padding_mini"
+                    android:layout_marginEnd="@dimen/padding_mini"
                     android:hint="@string/sign_up_phone_number"
                     android:textColorHint="@color/purple_200">
 
@@ -163,12 +170,13 @@
                         android:labelFor="@id/sign_up_phone_number" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                 <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/text_input_layout_sign_up_license_number"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_mini"
+                    android:layout_marginStart="@dimen/padding_mini"
+                    android:layout_marginEnd="@dimen/padding_mini"
                     android:hint="@string/sign_up_license_number"
                     android:textColorHint="@color/purple_200">
 
@@ -187,34 +195,33 @@
         </com.google.android.material.card.MaterialCardView>
 
         <LinearLayout
+            android:id="@+id/layout_buttons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/card_sign_up"
             android:layout_margin="@dimen/padding_mini"
-            android:padding="@dimen/padding_mini"
-            android:weightSum="2"
             android:orientation="horizontal"
-            android:id="@+id/layout_buttons">
+            android:padding="@dimen/padding_mini"
+            android:weightSum="2">
 
 
             <Button
                 android:id="@+id/account_signup_btn_signup"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:backgroundTint="@color/custom_color"
                 android:padding="@dimen/padding_mini"
                 android:text="@string/account_btn_sign_up" />
 
 
             <com.google.android.gms.common.SignInButton
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/purple_200"
                 android:id="@+id/one_tap_sign_in_btn"
-                android:text="@string/account_btn_google_sign_up"
-                />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/purple_200"
+                android:text="@string/account_btn_google_sign_up" />
 
         </LinearLayout>
 

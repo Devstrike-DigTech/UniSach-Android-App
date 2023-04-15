@@ -9,11 +9,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.TextView
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.chaos.view.PinView
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
@@ -131,9 +132,9 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
 
-            val oneTapSignInButton: SignInButton = oneTapSignInBtn
+            val oneTapSignUpButton: SignInButton = oneTapSignInBtn
 //
-            oneTapSignInButton.setOnClickListener {
+            oneTapSignUpButton.setOnClickListener {
             oneTapClient = Identity.getSignInClient(requireContext())
             signInRequest = BeginSignInRequest.builder()
                 .setGoogleIdTokenRequestOptions(
@@ -286,15 +287,21 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
 
         val view = layoutInflater.inflate(R.layout.reg_otp_layout, null)
 
-        val otpView = view.findViewById<PinView>(R.id.otp_view)
+        //val otpView = view.findViewById<PinView>(R.id.otp_view)
+        val otpView = view.findViewById<EditText>(R.id.otp_view)
         val otpCountDownView = view.findViewById<TextView>(R.id.sign_up_otp_count_down)
         val otpVerifyBtn = view.findViewById<MaterialButton>(R.id.otp_verify_btn)
         otpCountDownView.setTextColor(resources.getColor(R.color.custom_color))
 
+        otpVerifyBtn.enable(false)
         otpCountDownView.enable(false)
         dialog.setCancelable(false)
         dialog.setContentView(view)
         dialog.show()
+
+        otpView.addTextChangedListener {
+            otpVerifyBtn.enable(it.toString().trim().isNotEmpty() && it.toString().trim().length == 6)
+        }
 
         var timeLeftInMillis = COUNTDOWN_IN_MILLIS
 

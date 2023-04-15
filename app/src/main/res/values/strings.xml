@@ -65,6 +65,8 @@
     <string name="otp_resend_message">Resend OTP in: </string>
     <string name="unisach_slogan">don\'t stress...just sach</string>
     <string name="otp_button">Verify</string>
+    <string name="verify_otp_text">Enter OTP from email</string>
+    <string name="or_text">or</string>
 
     <array name="reg_steps">
         <item>Profile</item>

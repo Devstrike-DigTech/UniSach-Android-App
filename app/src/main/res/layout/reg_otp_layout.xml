@@ -44,26 +44,45 @@
 <!--            app:otpLength="6"-->
 <!--            app:spaceBetween="20" />-->
 
-        <com.chaos.view.PinView
-            android:id="@+id/otp_view"
-            app:itemCount="6"
-            app:itemWidth="50dp"
-            app:itemHeight="50dp"
-            android:gravity="center"
-            android:layout_marginTop="60dp"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_verify_otp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:itemBackground="@color/white"
-            android:layout_gravity="center"
-            android:inputType="text"
-            android:cursorVisible="true"
-            app:hideLineWhenFilled="false"
-            app:itemRadius="10dp"
-            style="@style/PinWidget.PinView"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            android:layout_margin="@dimen/margin_mini"
+            android:hint="@string/verify_otp_text"
+            android:textColorHint="@color/custom_color">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/otp_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/sign_up_last_name"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                android:labelFor="@id/sign_up_last_name" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--        <com.chaos.view.PinView-->
+<!--            android:id="@+id/otp_view"-->
+<!--            app:itemCount="6"-->
+<!--            app:itemWidth="50dp"-->
+<!--            app:itemHeight="50dp"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_marginTop="60dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:itemBackground="@color/white"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:inputType="text"-->
+<!--            android:cursorVisible="true"-->
+<!--            app:hideLineWhenFilled="false"-->
+<!--            app:itemRadius="10dp"-->
+<!--            style="@style/PinWidget.PinView"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            />-->
 
         <com.google.android.material.button.MaterialButton
             android:layout_width="wrap_content"
