@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/custom_color_defined"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".features.auth.ui.SignIn">
 
@@ -10,10 +11,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/padding_mini"
+                android:padding="@dimen/padding_mini"
+                app:srcCompat="@drawable/unisach_bee_logo_splash"
+                android:contentDescription="@string/unisach_logo_text"
+                android:id="@+id/sign_in_mini_logo"
+                />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/sign_in_mini_logo"
             android:text="@string/sign_in_title"
+            android:textColor="@color/white"
             android:textAlignment="center"
             android:layout_margin="@dimen/padding_mini"
             android:padding="@dimen/padding_mini"
@@ -21,22 +36,27 @@
             android:id="@+id/tv_sign_in_title"/>
 
         <TextView
+            android:id="@+id/tv_sign_in_subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/tv_sign_in_title"
+            android:layout_marginStart="@dimen/padding_mini"
+            android:layout_marginTop="@dimen/padding_mini"
+            android:layout_marginEnd="@dimen/padding_mini"
+            android:layout_marginBottom="@dimen/padding_mini"
+            android:padding="@dimen/padding_mini"
             android:text="@string/sign_in_subtitle"
             android:textAlignment="center"
-            android:layout_margin="@dimen/padding_mini"
-            android:padding="@dimen/padding_mini"
-            android:textSize="@dimen/text_l"
-            android:layout_below="@id/tv_sign_in_title"
-            android:id="@+id/tv_sign_in_subtitle"/>
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_s" />
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardElevation="@dimen/padding_mini"
             android:layout_centerInParent="true"
-            android:layout_margin="@dimen/padding_mini"
+            app:cardBackgroundColor="@color/auth_card_color"
+            android:layout_margin="@dimen/margin_midi"
             android:padding="@dimen/padding_mini"
             android:id="@+id/card_sign_in">
 
@@ -54,7 +74,8 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/margin_mini"
                         android:hint="@string/sign_in_email"
-                        android:textColorHint="@color/purple_200"
+                        android:textColorHint="@color/custom_accent_color"
+                        app:boxStrokeColor="@color/custom_accent_color"
                         android:paddingTop="@dimen/padding_midi">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -75,9 +96,10 @@
                         android:layout_margin="@dimen/margin_mini"
                         android:hint="@string/sign_in_password"
                         android:paddingTop="8dp"
-                        android:textColorHint="@color/purple_200"
+                        android:textColorHint="@color/custom_accent_color"
+                        app:boxStrokeColor="@color/custom_accent_color"
                         app:passwordToggleEnabled="true"
-                        app:passwordToggleTint="@color/purple_200">
+                        app:passwordToggleTint="@color/custom_accent_color">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/sign_in_password"
@@ -97,7 +119,7 @@
                         android:layout_margin="@dimen/padding_mini"
                         android:padding="@dimen/padding_mini"
                         android:text="@string/account_log_in_forgot_password_prompt"
-                        android:textColor="@color/purple_200"
+                        android:textColor="@color/custom_accent_color"
                         android:textSize="@dimen/text_s" />
 
 
@@ -106,29 +128,33 @@
 
                 <Button
                     android:id="@+id/account_log_in_btn_login"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/card_sign_in"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/margin_midi"
-                    android:backgroundTint="@color/purple_200"
+                    android:layout_margin="@dimen/margin_midi"
+                    android:backgroundTint="@color/custom_accent_color"
                     android:padding="@dimen/padding_mini"
                     android:text="@string/account_btn_login" />
 
         <TextView
+            android:id="@+id/sign_in_or_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/or_text"
             android:layout_below="@id/account_log_in_btn_login"
             android:layout_centerHorizontal="true"
-            android:layout_margin="@dimen/padding_mini"
-            android:id="@+id/sign_in_or_text"/>
+            android:layout_marginStart="@dimen/padding_mini"
+            android:layout_marginTop="@dimen/padding_mini"
+            android:layout_marginEnd="@dimen/padding_mini"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/padding_mini"
+            android:text="@string/or_text" />
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/login_one_tap_sign_in_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/purple_200"
+            android:layout_margin="@dimen/margin_midi"
             android:layout_below="@id/sign_in_or_text"
             android:layout_centerHorizontal="true"
             android:text="@string/account_btn_google_sign_up" />
@@ -141,12 +167,10 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/margin_mini"
-            android:layout_marginTop="@dimen/margin_mini"
             android:layout_marginEnd="@dimen/margin_mini"
-            android:layout_marginBottom="@dimen/margin_mini"
             android:padding="@dimen/padding_mini"
             android:text="@string/account_not_logged_in_create_account"
-            android:textColor="@color/purple_200"
+            android:textColor="@color/custom_accent_color"
             android:textSize="@dimen/text_s" />
 
     </RelativeLayout>

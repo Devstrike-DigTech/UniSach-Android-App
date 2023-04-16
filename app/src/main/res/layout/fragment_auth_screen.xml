@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/custom_color"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".features.auth.ui.AuthScreen">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="460dp"
+        >
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/padding_mini"
+            android:padding="@dimen/padding_mini"
+            app:srcCompat="@drawable/unisach_bee_logo_splash"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/auth_background"
+            android:alpha="0.4"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/auth_footer"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/auth_headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/padding_mini"
+            android:layout_marginTop="@dimen/padding_mini"
+            android:layout_marginEnd="@dimen/padding_mini"
+            android:layout_marginBottom="@dimen/padding_mini"
+            android:padding="@dimen/padding_mini"
+            android:text="@string/auth_screen_headline"
+            android:textColor="@color/custom_accent_color"
+            android:textSize="@dimen/text_xl"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/unisach_slogan"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/auth_headline"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_l"
+            android:padding="@dimen/padding_mini"
+            android:id="@+id/auth_headline_sub"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:id="@+id/auth_layout_buttons"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/auth_headline_sub"
+            android:layout_margin="@dimen/padding_mini"
+            android:padding="@dimen/padding_mini">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:strokeColor="@color/white"
+                app:strokeWidth="1dp"
+                android:layout_margin="@dimen/padding_mini"
+                android:padding="@dimen/padding_mini"
+                app:backgroundTint="@color/custom_color"
+                android:text="@string/auth_login_text"
+                android:id="@+id/auth_login_btn"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1dp"
+                app:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                android:layout_margin="@dimen/padding_mini"
+                android:padding="@dimen/padding_mini"
+                android:text="@string/auth_signup_text"
+                android:id="@+id/auth_signup_btn"/>
+
+        </LinearLayout>
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/auth_screen_one_tap_sign_in_btn"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/auth_layout_buttons"
+            android:layout_marginTop="@dimen/margin_midi"
+            android:layout_marginBottom="@dimen/margin_maxi"
+            android:text="@string/account_btn_google_sign_up" />
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

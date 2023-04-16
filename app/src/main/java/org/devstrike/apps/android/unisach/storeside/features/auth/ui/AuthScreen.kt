@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2023.
+ * Richard Uzor
+ * Under the Authority of Devstrike Digital Ltd.
+ */
+
 package org.devstrike.apps.android.unisach.storeside.features.auth.ui
 
 import android.app.Dialog
@@ -5,10 +11,10 @@ import android.content.Intent
 import android.content.IntentSender
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -20,20 +26,23 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.CommonStatusCodes
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import org.devstrike.apps.android.unisach.storeside.R
 import org.devstrike.apps.android.unisach.storeside.base.BaseFragment
-import org.devstrike.apps.android.unisach.storeside.databinding.FragmentSignInBinding
+import org.devstrike.apps.android.unisach.storeside.databinding.FragmentAuthScreenBinding
 import org.devstrike.apps.android.unisach.storeside.features.auth.data.AuthApi
 import org.devstrike.apps.android.unisach.storeside.features.auth.data.models.requests.GoogleSignInRequest
-import org.devstrike.apps.android.unisach.storeside.features.auth.data.models.requests.LoginRequest
 import org.devstrike.apps.android.unisach.storeside.features.auth.repositories.AuthRepoImpl
 import org.devstrike.apps.android.unisach.storeside.network.Resource
 import org.devstrike.apps.android.unisach.storeside.network.handleApiError
-import org.devstrike.apps.android.unisach.storeside.utils.*
+import org.devstrike.apps.android.unisach.storeside.utils.Common
+import org.devstrike.apps.android.unisach.storeside.utils.SessionManager
+import org.devstrike.apps.android.unisach.storeside.utils.showProgressDialog
+import org.devstrike.apps.android.unisach.storeside.utils.toast
 import javax.inject.Inject
 import kotlin.properties.Delegates
 
 @AndroidEntryPoint
-class SignIn : BaseFragment<AuthViewModel, FragmentSignInBinding, AuthRepoImpl>() {
+class AuthScreen : BaseFragment<AuthViewModel, FragmentAuthScreenBinding, AuthRepoImpl>() {
 
     @set:Inject
     var authApi: AuthApi by Delegates.notNull()
@@ -52,13 +61,6 @@ class SignIn : BaseFragment<AuthViewModel, FragmentSignInBinding, AuthRepoImpl>(
     private val REQ_ONE_TAP = 2  // Can be any integer unique to the Activity
     private var showOneTapUI = true
 
-    private lateinit var email: String
-    private lateinit var password: String
-
-
-    //    var oneTapSignInLauncher: ActivityResultLauncher<IntentSenderRequest> =
-//        registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) { result ->
-//            if (result.resultCode == Activity.RESULT_OK) {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -113,25 +115,9 @@ class SignIn : BaseFragment<AuthViewModel, FragmentSignInBinding, AuthRepoImpl>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        with(binding) {
+        val oneTapSignInButton: SignInButton = binding.authScreenOneTapSignInBtn
 
-
-            accountLogInBtnLogin.enable(false)
-            signInPassword.addTextChangedListener {
-                email = signInEmail.text.toString().trim()
-                password = it.toString().trim()
-                accountLogInBtnLogin.enable(email.isNotEmpty() && password.isNotEmpty())
-            }
-            accountLogInBtnLogin.setOnClickListener {
-                val userDetails = LoginRequest(
-                    email = email,
-                    password = password
-                )
-                subscribeToSignInEvent(userDetails)
-
-            }
-            val oneTapSignInButton: SignInButton = loginOneTapSignInBtn
-//
+        with(binding){
             oneTapSignInButton.setOnClickListener {
                 oneTapClient = Identity.getSignInClient(requireContext())
                 signInRequest = BeginSignInRequest.builder()
@@ -165,47 +151,28 @@ class SignIn : BaseFragment<AuthViewModel, FragmentSignInBinding, AuthRepoImpl>(
                         // do nothing and continue presenting the signed-out UI.
                         Log.d(Common.TAG, e.localizedMessage)
                     }
-                accountLogInBtnLogin.setOnClickListener {
-                    requireContext().toast("Login Success!!")
-                    val navToHome = SignInDirections.actionSignInToHome2()
-                    findNavController().navigate(navToHome)
-                }
-                accountLogInCreateAccount.setOnClickListener {
-                    val navToSignUp = SignInDirections.actionSignInToSignUp()
-                    findNavController().navigate(navToSignUp)
-                }
             }
-
-
-        }
-    }
-
-    private fun subscribeToSignInEvent(userDetails: LoginRequest) {
-
-        authViewModel.login(userDetails)
-
-        lifecycleScope.launch {
-            authViewModel.logInState.collect{ result ->
-                when(result){
-                    is Resource.Success ->{
-                        hideProgressBar()
-                        requireContext().toast("Sign in successful")
-                        val navToHome = SignInDirections.actionSignInToHome2()
-                        findNavController().navigate(navToHome)
-                        findNavController().popBackStack(0, false)
-                    }
-                    is Resource.Failure ->{
-                        hideProgressBar()
-                        handleApiError(result.error){subscribeToSignInEvent(userDetails)}
-                    }
-                    is Resource.Loading ->{
-                        showProgressBar()
-                    }
-                }
-
+            authSignupBtn.setOnClickListener {
+                val navToSignUp = AuthScreenDirections.actionAuthScreenToSignUp()
+                findNavController().navigate(navToSignUp)
+                findNavController().popBackStack(0, false)
+            }
+            authLoginBtn.setOnClickListener {
+                val navToSignIn = AuthScreenDirections.actionAuthScreenToSignIn()
+                findNavController().navigate(navToSignIn)
+                findNavController().popBackStack(0, false)
+            }
+//                accountLogInBtnLogin.setOnClickListener {
+//                    requireContext().toast("Login Success!!")
+//                    val navToHome = SignInDirections.actionSignInToHome2()
+//                    findNavController().navigate(navToHome)
+//                }
+//                accountLogInCreateAccount.setOnClickListener {
+//                    val navToSignUp = SignInDirections.actionSignInToSignUp()
+//                    findNavController().navigate(navToSignUp)
+//                }
             }
         }
-    }
 
     private fun subscribeToGoogleSignInEvent(userToken: String?) {
 
@@ -218,7 +185,7 @@ class SignIn : BaseFragment<AuthViewModel, FragmentSignInBinding, AuthRepoImpl>(
                     is Resource.Success -> {
                         hideProgressBar()
                         requireContext().toast("Sign in successful")
-                        val navToHome = SignInDirections.actionSignInToHome2()
+                        val navToHome = AuthScreenDirections.actionAuthScreenToHome2()
                         findNavController().navigate(navToHome)
                         findNavController().popBackStack(0, false)
                     }
@@ -245,6 +212,7 @@ class SignIn : BaseFragment<AuthViewModel, FragmentSignInBinding, AuthRepoImpl>(
     }
 
 
+
     override fun getFragmentRepo() = AuthRepoImpl(authApi, sessionManager)
 
     override fun getViewModel() = AuthViewModel::class.java
@@ -252,6 +220,6 @@ class SignIn : BaseFragment<AuthViewModel, FragmentSignInBinding, AuthRepoImpl>(
     override fun getFragmentBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ) = FragmentSignInBinding.inflate(inflater, container, false)
+    ) = FragmentAuthScreenBinding.inflate(inflater, container, false)
 
 }

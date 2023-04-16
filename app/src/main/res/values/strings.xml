@@ -67,6 +67,10 @@
     <string name="otp_button">Verify</string>
     <string name="verify_otp_text">Enter OTP from email</string>
     <string name="or_text">or</string>
+    <string name="auth_screen_headline">unisach</string>
+    <string name="auth_login_text">Log in</string>
+    <string name="auth_signup_text">Sign up</string>
+    <string name="unisach_logo_text">Unisach, all the meds you need in all the stores you have</string>
 
     <array name="reg_steps">
         <item>Profile</item>

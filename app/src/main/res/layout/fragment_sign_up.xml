@@ -4,21 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/custom_color_defined"
     tools:context=".features.auth.ui.SignUp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/padding_mini"
+            android:padding="@dimen/padding_mini"
+            app:srcCompat="@drawable/unisach_bee_logo_splash"
+            android:contentDescription="@string/unisach_logo_text"
+            android:id="@+id/sign_up_mini_logo"
+            />
+
 
         <TextView
             android:id="@+id/tv_sign_up_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/padding_mini"
-            android:padding="@dimen/padding_mini"
+            android:layout_below="@id/sign_up_mini_logo"
+            android:layout_marginStart="@dimen/padding_mini"
+            android:layout_marginTop="@dimen/padding_mini"
+            android:layout_marginEnd="@dimen/padding_mini"
             android:text="@string/sign_up_title"
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="@dimen/text_xxl" />
 
         <TextView
@@ -26,17 +40,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_sign_up_title"
-            android:layout_margin="@dimen/padding_mini"
-            android:padding="@dimen/padding_mini"
+            android:textColor="@color/white"
             android:text="@string/sign_up_subtitle"
             android:textAlignment="center"
-            android:textSize="@dimen/text_l" />
+            android:textSize="@dimen/text_s" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_sign_up"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_below="@id/tv_sign_up_subtitle"
+            app:cardBackgroundColor="@color/auth_card_color"
             android:layout_margin="@dimen/padding_mini"
             android:padding="@dimen/padding_mini"
             app:cardElevation="@dimen/padding_mini">
@@ -53,8 +67,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/padding_mini"
                     android:layout_marginEnd="@dimen/padding_mini"
+                    android:padding="@dimen/padding_mini"
                     android:hint="@string/sign_up_first_name"
-                    android:textColorHint="@color/purple_200">
+                    android:textColorHint="@color/custom_accent_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/sign_up_first_name"
@@ -73,8 +88,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/padding_mini"
                     android:layout_marginEnd="@dimen/padding_mini"
+                    android:padding="@dimen/padding_mini"
                     android:hint="@string/sign_up_last_name"
-                    android:textColorHint="@color/purple_200">
+                    android:textColorHint="@color/custom_accent_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/sign_up_last_name"
@@ -93,8 +109,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/padding_mini"
                     android:layout_marginEnd="@dimen/padding_mini"
+                    android:padding="@dimen/padding_mini"
                     android:hint="@string/sign_up_email"
-                    android:textColorHint="@color/purple_200">
+                    android:textColorHint="@color/custom_accent_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/sign_up_email"
@@ -113,10 +130,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/padding_mini"
                     android:layout_marginEnd="@dimen/padding_mini"
+                    android:padding="@dimen/padding_mini"
                     android:hint="@string/sign_up_password"
-                    android:textColorHint="@color/purple_200"
+                    android:textColorHint="@color/custom_accent_color"
                     app:passwordToggleEnabled="true"
-                    app:passwordToggleTint="@color/purple_200">
+                    app:passwordToggleTint="@color/custom_accent_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/sign_up_password"
@@ -135,10 +153,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/padding_mini"
                     android:layout_marginEnd="@dimen/padding_mini"
+                    android:padding="@dimen/padding_mini"
                     android:hint="@string/sign_up_confirm_password"
-                    android:textColorHint="@color/purple_200"
+                    android:textColorHint="@color/custom_accent_color"
                     app:passwordToggleEnabled="true"
-                    app:passwordToggleTint="@color/purple_200">
+                    app:passwordToggleTint="@color/custom_accent_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/sign_up_confirm_password"
@@ -157,8 +176,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/padding_mini"
                     android:layout_marginEnd="@dimen/padding_mini"
+                    android:padding="@dimen/padding_mini"
                     android:hint="@string/sign_up_phone_number"
-                    android:textColorHint="@color/purple_200">
+                    android:textColorHint="@color/custom_accent_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/sign_up_phone_number"
@@ -177,8 +197,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/padding_mini"
                     android:layout_marginEnd="@dimen/padding_mini"
+                    android:padding="@dimen/padding_mini"
                     android:hint="@string/sign_up_license_number"
-                    android:textColorHint="@color/purple_200">
+                    android:textColorHint="@color/custom_accent_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/sign_up_license_number"
@@ -234,7 +255,7 @@
             android:layout_gravity="center"
             android:padding="@dimen/padding_mini"
             android:text="@string/sign_up_login_prompt"
-            android:textColor="@color/purple_200"
+            android:textColor="@color/custom_accent_color"
             android:textSize="@dimen/text_s" />
 
 

@@ -6,7 +6,12 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="custom_color">#FF018786</color>
+    <color name="custom_color_defined">#3C9386</color>
+    <color name="custom_color_logo">#3B978A</color>
+    <color name="custom_accent_color">#FAAB54</color>
+    <color name="auth_card_color">#7FAEA6</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#DFDFDF</color>
+    <color name="splash_background">#1E544D</color>
 </resources>

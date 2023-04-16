@@ -42,8 +42,8 @@ class SplashScreen : BaseFragment<AuthViewModel, FragmentSplashScreenBinding, Au
             hideSystemUI()
             splashImage.animate().setDuration(2000).alpha(1f).withEndAction {
                 layoutDevstrike.animate().setDuration(2000).alpha(1f).withEndAction {
-                    val navToLanding = SplashScreenDirections.actionSplashScreenToSignIn()
-                    findNavController().navigate(navToLanding)
+                    val navToAuth = SplashScreenDirections.actionSplashScreenToAuthScreen()
+                    findNavController().navigate(navToAuth)
                 }
 
             }

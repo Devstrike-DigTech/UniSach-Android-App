@@ -9,18 +9,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FF399386"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SplashScreen">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/splash_image"
+    <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerInParent="true"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="false"
-        app:lottie_rawRes="@raw/unisach_mock_logo" />
-
+        android:id="@+id/splash_image"
+        app:srcCompat="@drawable/unisach_bee_logo_splash" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,22 +34,13 @@
             android:contentDescription="@string/devstrike_logo"
             app:srcCompat="@drawable/devstrike_logo" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/powered_by_text" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_l"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/margin_midi"
                 android:text="@string/dev_strike_text" />
-
-        </LinearLayout>
 
     </LinearLayout>
 

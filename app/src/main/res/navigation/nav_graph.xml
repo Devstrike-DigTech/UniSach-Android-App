@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_splashScreen_to_signIn"
             app:destination="@id/signIn" />
+        <action
+            android:id="@+id/action_splashScreen_to_authScreen"
+            app:destination="@id/authScreen" />
     </fragment>
     <fragment
         android:id="@+id/signIn"
@@ -97,4 +100,19 @@
         android:name="org.devstrike.apps.android.unisach.storeside.features.home.ui.Home"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/authScreen"
+        android:name="org.devstrike.apps.android.unisach.storeside.features.auth.ui.AuthScreen"
+        android:label="fragment_auth_screen"
+        tools:layout="@layout/fragment_auth_screen" >
+        <action
+            android:id="@+id/action_authScreen_to_signUp"
+            app:destination="@id/signUp" />
+        <action
+            android:id="@+id/action_authScreen_to_signIn"
+            app:destination="@id/signIn" />
+        <action
+            android:id="@+id/action_authScreen_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
 </navigation>
