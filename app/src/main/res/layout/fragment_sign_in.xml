@@ -58,6 +58,7 @@
             app:cardBackgroundColor="@color/auth_card_color"
             android:layout_margin="@dimen/margin_midi"
             android:padding="@dimen/padding_mini"
+            app:cardCornerRadius="@dimen/padding_midi"
             android:id="@+id/card_sign_in">
 
             <LinearLayout

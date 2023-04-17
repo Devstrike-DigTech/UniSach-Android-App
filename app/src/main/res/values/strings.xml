@@ -6,7 +6,7 @@
     <string name="sign_in_subtitle">Enter details to sign in</string>
     <string name="account_btn_login">Sign In</string>
     <string name="account_log_in_forgot_password_prompt">Forgot Password</string>
-    <string name="sign_in_email">Entered Your Registered Email</string>
+    <string name="sign_in_email">Enter Your Registered Email</string>
     <string name="account_not_logged_in_create_account">No account yet? Register here</string>
     <string name="sign_in_password">Enter Your Password</string>
     <string name="sign_up_title">Sign Up</string>
@@ -71,6 +71,10 @@
     <string name="auth_login_text">Log in</string>
     <string name="auth_signup_text">Sign up</string>
     <string name="unisach_logo_text">Unisach, all the meds you need in all the stores you have</string>
+    <string name="forgot_password_title">Oops! Forgot Password?</string>
+    <string name="account_forgot_password_login_prompt">Remembered password?</string>
+    <string name="account_forgot_password_btn">Recover</string>
+    <string name="forgot_password_subtitle">Enter your registered email address</string>
 
     <array name="reg_steps">
         <item>Profile</item>

@@ -39,7 +39,7 @@ class SplashScreen : BaseFragment<AuthViewModel, FragmentSplashScreenBinding, Au
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
-            hideSystemUI()
+           // hideSystemUI()
             splashImage.animate().setDuration(2000).alpha(1f).withEndAction {
                 layoutDevstrike.animate().setDuration(2000).alpha(1f).withEndAction {
                     val navToAuth = SplashScreenDirections.actionSplashScreenToAuthScreen()
@@ -50,24 +50,24 @@ class SplashScreen : BaseFragment<AuthViewModel, FragmentSplashScreenBinding, Au
         }
     }
 
-    // Function to hide NavigationBar and system Ui
-    @RequiresApi(Build.VERSION_CODES.R)
-    private fun hideSystemUI() {
-        WindowCompat.setDecorFitsSystemWindows(requireActivity().window, false)
-
-        WindowInsetsControllerCompat(
-            requireActivity().window,
-            requireActivity().window.decorView.findViewById(R.id.content)
-        ).let { controller ->
-            controller.hide(WindowInsetsCompat.Type.systemBars())
-
-            // When the screen is swiped up at the bottom
-            // of the application, the navigationBar shall
-            // appear for some time
-            controller.systemBarsBehavior =
-                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        }
-    }
+//    // Function to hide NavigationBar and system Ui
+//    @RequiresApi(Build.VERSION_CODES.R)
+//    private fun hideSystemUI() {
+//        WindowCompat.setDecorFitsSystemWindows(requireActivity().window, false)
+//
+//        WindowInsetsControllerCompat(
+//            requireActivity().window,
+//            requireActivity().window.decorView.findViewById(R.id.content)
+//        ).let { controller ->
+//            controller.hide(WindowInsetsCompat.Type.systemBars())
+//
+//            // When the screen is swiped up at the bottom
+//            // of the application, the navigationBar shall
+//            // appear for some time
+//            controller.systemBarsBehavior =
+//                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+//        }
+//    }
 
     override fun getFragmentRepo() = AuthRepoImpl(authApi, sessionManager)
 

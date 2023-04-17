@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="460dp"
+        android:layout_height="465dp"
         >
 
         <ImageView
@@ -17,6 +17,7 @@
             android:layout_height="50dp"
             android:layout_margin="@dimen/padding_mini"
             android:padding="@dimen/padding_mini"
+            android:contentDescription="@string/unisach_slogan"
             app:srcCompat="@drawable/unisach_bee_logo_splash"
             />
 
@@ -24,6 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/auth_background"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/unisach_slogan"
             android:alpha="0.4"/>
 
 
