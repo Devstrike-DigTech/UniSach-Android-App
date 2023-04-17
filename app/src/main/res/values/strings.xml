@@ -47,8 +47,8 @@
     <string name="powered_by_text">Powered by</string>
     <string name="dev_strike_text">Devstrike Inc.</string>
     <string name="home_fragment">Registration Complete!!</string>
-    <string name="good_morning_text">Good morning, user</string>
-    <string name="health_tip_dummy_text">This a dummy health tip for pharmacist</string>
+    <string name="good_morning_text">Hello, user</string>
+    <string name="health_tip_dummy_text">Sanitize your surfaces</string>
     <string name="toolbar_iv_account">User account menu option</string>
     <string name="inventory_title">Inventory</string>
     <string name="inventory_menu_metric">30 of 250</string>
@@ -75,6 +75,7 @@
     <string name="account_forgot_password_login_prompt">Remembered password?</string>
     <string name="account_forgot_password_btn">Recover</string>
     <string name="forgot_password_subtitle">Enter your registered email address</string>
+    <string name="verify_reservation">Verify Code</string>
 
     <array name="reg_steps">
         <item>Profile</item>

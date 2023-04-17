@@ -4,32 +4,37 @@
   ~ Under the Authority of Devstrike Digital Ltd.
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/landing_bg"
     tools:context=".features.home.ui.Home">
 
     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding_mini">
+    <RelativeLayout
         android:id="@+id/layout_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:alpha="0.5"
-        android:background="@drawable/toolbar_header">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/greeting_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_margin="@dimen/padding_mini"
+            android:layout_marginStart="@dimen/padding_mini"
+            android:layout_marginTop="@dimen/padding_mini"
+            android:layout_marginEnd="@dimen/padding_mini"
             android:layout_toStartOf="@id/toolbar_iv_account"
             android:padding="@dimen/padding_mini"
             android:text="@string/good_morning_text"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_xl" />
+            android:textSize="@dimen/text_l" />
 
 
         <TextView
@@ -40,8 +45,7 @@
             android:layout_margin="@dimen/padding_mini"
             android:padding="@dimen/padding_mini"
             android:text="@string/health_tip_dummy_text"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_l" />
+             />
 
         <ImageView
             android:id="@+id/toolbar_iv_account"
@@ -59,194 +63,208 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/layout_toolbar"
+        android:id="@+id/overview_main_card"
+        app:cardBackgroundColor="@color/grey"
         android:layout_margin="@dimen/padding_mini"
-        android:padding="@dimen/padding_mini"
+        android:padding="@dimen/padding_midi"
         app:cardElevation="@dimen/padding_mini">
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/home_info_banner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_mini"
+                android:padding="@dimen/padding_mini"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/user_sub_level"
+                    tools:text="Level 4"
+                    android:textStyle="bold"
+                    android:textColor="@color/purple_500"
+                    android:padding="@dimen/padding_mini"
+                    android:layout_margin="@dimen/padding_mini"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="900 Inventory Item Slots"
+                    android:layout_margin="@dimen/padding_mini"
+                    android:padding="@dimen/padding_mini"
+                    android:id="@+id/user_sub_level_inventory_limit"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="0 Promotions"
+                    android:layout_margin="@dimen/padding_mini"
+                    android:padding="@dimen/padding_mini"
+                    android:id="@+id/user_sub_level_active_promotions"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/padding_midi"
+                    android:layout_margin="@dimen/padding_mini"
+                    android:padding="@dimen/padding_mini"
+                    android:id="@+id/overview_card_reservation">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/reservation_title"
+                            android:textSize="@dimen/text_l"
+                            android:textColor="@color/black"
+                            android:layout_margin="@dimen/padding_mini"
+                            android:padding="@dimen/padding_mini"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="0 Active"
+                            android:id="@+id/overview_active_reservations_text"
+                            android:layout_margin="@dimen/padding_mini"
+                            android:padding="@dimen/padding_mini"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="0 Inactive"
+                            android:id="@+id/overview_inactive_reservations_text"
+                            android:layout_margin="@dimen/padding_mini"
+                            android:padding="@dimen/padding_mini"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="@dimen/padding_mini"
+                            android:padding="@dimen/padding_mini"
+                            android:text="@string/verify_reservation"
+                            app:backgroundTint="@color/auth_card_color"
+                            android:id="@+id/overview_verify_reservation_button"/>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="@color/custom_accent_color"
+                        app:cardCornerRadius="@dimen/padding_maxi"
+                        android:padding="@dimen/padding_mini"
+                        android:layout_margin="@dimen/padding_mini"
+                        app:cardElevation="@dimen/padding_mini">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_margin="@dimen/padding_mini">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/inventory_title"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:layout_margin="@dimen/padding_mega"
+                                android:textAlignment="center"
+                                android:textSize="@dimen/text_l"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:text="@string/inventory_menu_metric"
+                                android:textColor="@color/white"
+                                android:layout_marginTop="@dimen/padding_mega"
+                                android:layout_marginBottom="@dimen/margin_midi"
+                                android:textStyle="bold"
+                                android:textAlignment="center" />
+
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="@dimen/padding_maxi"
+                        android:padding="@dimen/padding_mini"
+                        android:layout_margin="@dimen/padding_mini"
+                        app:cardElevation="@dimen/padding_mini">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_margin="@dimen/padding_mini">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/store_profile_title"
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                android:layout_margin="@dimen/padding_mega"
+                                android:textAlignment="center"
+                                android:textSize="@dimen/text_l"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:text="@string/store_profile_menu_metric"
+                                android:layout_marginTop="@dimen/padding_mega"
+                                android:layout_marginBottom="@dimen/margin_midi"
+                                android:textStyle="bold"
+                                android:textAlignment="center" />
+
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
 
     </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="@dimen/padding_mini"
-        android:padding="@dimen/padding_mini"
-        app:cardElevation="@dimen/padding_mini">
 
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_below="@id/overview_main_card"
+            android:layout_margin="@dimen/padding_mini"
+            android:padding="@dimen/padding_mini"
+            app:cardElevation="@dimen/padding_mini">
 
-            <LinearLayout
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/home_info_banner"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_margin="@dimen/padding_mini"
-                android:orientation="horizontal"
-                android:padding="@dimen/padding_mini"
-                android:weightSum="2">
+                android:layout_height="wrap_content" />
 
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/padding_mini"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="@color/purple_200"
-                    app:cardElevation="@dimen/padding_mini">
+        </com.google.android.material.card.MaterialCardView>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+    </RelativeLayout>
 
-                        <TextView
-                            android:id="@+id/txt_inventory_menu_main"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:text="@string/inventory_title"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/text_xl" />
-
-                        <TextView
-                            android:id="@+id/txt_inventory_menu_metric"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/txt_inventory_menu_main"
-                            android:text="@string/inventory_menu_metric"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/text_l" />
-
-
-                    </RelativeLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/padding_mini"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="@color/purple_200"
-                    app:cardElevation="@dimen/padding_mini">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/txt_reservation_menu_main"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:text="@string/reservation_title"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/text_xl" />
-
-                        <TextView
-                            android:id="@+id/txt_reservation_menu_metric"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/txt_reservation_menu_main"
-                            android:text="@string/reservation_menu_metric"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/text_l" />
-
-
-                    </RelativeLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_margin="@dimen/padding_mini"
-                android:orientation="horizontal"
-                android:padding="@dimen/padding_mini"
-                android:weightSum="2">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/padding_mini"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="@color/purple_200"
-                    app:cardElevation="@dimen/padding_mini">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/txt_profile_menu_main"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:text="@string/store_profile_title"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/text_xl" />
-
-                        <TextView
-                            android:id="@+id/txt_store_profile_menu_metric"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/txt_profile_menu_main"
-                            android:text="@string/store_profile_menu_metric"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/text_l" />
-
-
-                    </RelativeLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/padding_mini"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="@color/purple_200"
-                    app:cardElevation="@dimen/padding_mini">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/txt_plan_menu_main"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:text="@string/plan_title"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/text_xl" />
-
-                        <TextView
-                            android:id="@+id/txt_plan_menu_metric"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/txt_plan_menu_main"
-                            android:text="@string/plan_menu_metric"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/text_l" />
-
-
-                    </RelativeLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
