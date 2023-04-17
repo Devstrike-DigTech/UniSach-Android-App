@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_signIn_to_home2"
             app:destination="@id/home2" />
+        <action
+            android:id="@+id/action_signIn_to_forgotPassword"
+            app:destination="@id/forgotPassword" />
     </fragment>
     <fragment
         android:id="@+id/signUp"
@@ -114,5 +117,14 @@
         <action
             android:id="@+id/action_authScreen_to_home2"
             app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPassword"
+        android:name="org.devstrike.apps.android.unisach.storeside.features.auth.ui.ForgotPassword"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" >
+        <action
+            android:id="@+id/action_forgotPassword_to_signIn"
+            app:destination="@id/signIn" />
     </fragment>
 </navigation>

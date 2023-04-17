@@ -15,6 +15,7 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import org.devstrike.apps.android.unisach.storeside.R
@@ -58,6 +59,11 @@ class ForgotPassword : BaseFragment<AuthViewModel, FragmentForgotPasswordBinding
                 accountForgotPasswordBtn.setOnClickListener {
                     subscribeToForgotPasswordEvent(email)
                 }
+            }
+            accountForgotPasswordLoginPrompt.setOnClickListener {
+                val navToSignIn = ForgotPasswordDirections.actionForgotPasswordToSignIn()
+                findNavController().navigate(navToSignIn)
+                findNavController().popBackStack(0, false)
             }
         }
     }

@@ -9,6 +9,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/custom_color_defined"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".features.auth.ui.pharmacyregistration.PharmacyOthersReg">
 
@@ -16,6 +17,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/padding_mini"
+            android:padding="@dimen/padding_mini"
+            app:srcCompat="@drawable/unisach_bee_logo_splash"
+            android:contentDescription="@string/unisach_logo_text"
+            android:id="@+id/pharm_reg_others_mini_logo"
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -27,6 +37,8 @@
             android:layout_marginEnd="@dimen/padding_mini"
             android:padding="@dimen/padding_mini"
             android:textSize="@dimen/text_xxl"
+            android:textColor="@color/white"
+            android:layout_below="@id/pharm_reg_others_mini_logo"
             android:id="@+id/register_pharmacy_title"/>
 
         <TextView
@@ -36,6 +48,7 @@
             android:textAlignment="center"
             android:padding="@dimen/padding_mini"
             android:textSize="@dimen/text_l"
+            android:textColor="@color/white"
             android:layout_below="@id/register_pharmacy_title"
             android:id="@+id/register_pharmacy_subtitle"/>
 
@@ -61,7 +74,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     app:cardCornerRadius="100dp"
-                    app:cardBackgroundColor="@color/purple_200"
+                    app:cardBackgroundColor="@color/custom_accent_color"
                     android:padding="@dimen/padding_mini"
                     android:id="@+id/card_step_one"
                     android:layout_centerHorizontal="true"
@@ -83,7 +96,7 @@
                     android:layout_below="@id/card_step_one"
                     android:text="@string/profile_text"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/purple_200"/>
+                    android:textColor="@color/custom_accent_color"/>
 
             </RelativeLayout>
 
@@ -92,7 +105,7 @@
                 android:layout_width="0dp"
                 android:layout_height="2dp"
                 android:layout_weight="2.5"
-                android:background="@color/purple_200"
+                android:background="@color/custom_accent_color"
                 android:layout_marginTop="@dimen/padding_mega"
                 android:padding="@dimen/padding_mini"/>
 
@@ -109,7 +122,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     app:cardCornerRadius="100dp"
-                    app:cardBackgroundColor="@color/purple_200"
+                    app:cardBackgroundColor="@color/custom_accent_color"
                     android:padding="@dimen/padding_mini"
                     android:id="@+id/card_step_two"
                     android:layout_centerHorizontal="true"
@@ -131,7 +144,7 @@
                     android:layout_below="@id/card_step_two"
                     android:text="@string/address_text"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/purple_200"/>
+                    android:textColor="@color/custom_accent_color"/>
 
             </RelativeLayout>
 
@@ -140,7 +153,7 @@
                 android:layout_width="0dp"
                 android:layout_height="2dp"
                 android:layout_weight="2.5"
-                android:background="@color/purple_200"
+                android:background="@color/custom_accent_color"
                 android:layout_marginTop="@dimen/padding_mega"
                 android:padding="@dimen/padding_mini"/>
 
@@ -157,7 +170,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     app:cardCornerRadius="100dp"
-                    app:cardBackgroundColor="@color/purple_200"
+                    app:cardBackgroundColor="@color/custom_accent_color"
                     android:padding="@dimen/padding_mini"
                     android:id="@+id/card_step_three"
                     android:layout_centerHorizontal="true"
@@ -179,7 +192,7 @@
                     android:layout_below="@id/card_step_three"
                     android:text="@string/others_text"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/purple_200"/>
+                    android:textColor="@color/custom_accent_color"/>
 
             </RelativeLayout>
 
@@ -194,6 +207,8 @@
             android:layout_centerInParent="true"
             android:layout_margin="@dimen/padding_mini"
             android:padding="@dimen/padding_mini"
+            app:cardBackgroundColor="@color/auth_card_color"
+            app:cardCornerRadius="@dimen/margin_midi"
             android:id="@+id/card_pharmacy_register">
 
             <LinearLayout
@@ -208,7 +223,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/padding_mini"
                     android:hint="@string/register_pharmacy_license_no"
-                    android:textColorHint="@color/purple_200">
+                    android:textColorHint="@color/custom_accent_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/register_pharmacy_license_no"
@@ -227,7 +242,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/padding_mini"
                     android:hint="@string/register_pharmacy_description"
-                    android:textColorHint="@color/purple_200">
+                    android:textColorHint="@color/custom_accent_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/register_pharmacy_description"
@@ -301,6 +316,8 @@
                 android:text="@string/back_text"
                 android:layout_margin="@dimen/padding_mini"
                 android:padding="@dimen/padding_mini"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/custom_accent_color"
                 android:id="@+id/btn_others_back"/>
 
 
@@ -311,6 +328,7 @@
                 android:text="@string/finish_text"
                 android:layout_margin="@dimen/padding_mini"
                 android:padding="@dimen/padding_mini"
+                app:backgroundTint="@color/custom_accent_color"
                 android:id="@+id/btn_others_finish"/>
 
 

@@ -9,12 +9,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/custom_color_defined"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".features.auth.ui.pharmacyregistration.PharmacyProfileReg">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/padding_mini"
+            android:padding="@dimen/padding_mini"
+            app:srcCompat="@drawable/unisach_bee_logo_splash"
+            android:contentDescription="@string/unisach_logo_text"
+            android:id="@+id/pharm_reg_profile_mini_logo"
+            />
 
 
         <TextView
@@ -27,6 +38,8 @@
             android:layout_marginEnd="@dimen/padding_mini"
             android:padding="@dimen/padding_mini"
             android:textSize="@dimen/text_xxl"
+            android:layout_below="@id/pharm_reg_profile_mini_logo"
+            android:textColor="@color/white"
             android:id="@+id/register_pharmacy_title"/>
 
         <TextView
@@ -36,6 +49,7 @@
             android:textAlignment="center"
             android:padding="@dimen/padding_mini"
             android:textSize="@dimen/text_l"
+            android:textColor="@color/white"
             android:layout_below="@id/register_pharmacy_title"
             android:id="@+id/register_pharmacy_subtitle"/>
 
@@ -61,7 +75,7 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     app:cardCornerRadius="100dp"
-                    app:cardBackgroundColor="@color/purple_200"
+                    app:cardBackgroundColor="@color/custom_accent_color"
                     android:padding="@dimen/padding_mini"
                     android:id="@+id/card_step_one"
                     android:layout_centerHorizontal="true"
@@ -83,7 +97,7 @@
                     android:layout_below="@id/card_step_one"
                     android:text="@string/profile_text"
                     android:layout_centerHorizontal="true"
-                    android:textColor="@color/purple_200"/>
+                    android:textColor="@color/custom_accent_color"/>
 
             </RelativeLayout>
 
@@ -192,13 +206,16 @@
             app:cardElevation="@dimen/padding_mini"
             android:layout_below="@id/step_layout"
             android:layout_centerInParent="true"
+            app:cardBackgroundColor="@color/auth_card_color"
             android:layout_margin="@dimen/padding_mini"
+            app:cardCornerRadius="@dimen/padding_maxi"
             android:padding="@dimen/padding_mini"
             android:id="@+id/card_pharmacy_register">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="@dimen/padding_mini"
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -208,7 +225,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/padding_mini"
                     android:hint="@string/register_pharmacy_name"
-                    android:textColorHint="@color/purple_200">
+                    android:textColorHint="@color/custom_accent_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/register_pharmacy_name"
@@ -227,7 +244,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/padding_mini"
                     android:hint="@string/register_pharmacy_email"
-                    android:textColorHint="@color/purple_200">
+                    android:textColorHint="@color/custom_accent_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/register_pharmacy_email"
@@ -246,8 +263,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/padding_mini"
                     android:hint="@string/register_pharmacy_phone_number"
-                    android:textColorHint="@color/purple_200"
-                    app:passwordToggleTint="@color/purple_200">
+                    android:textColorHint="@color/custom_accent_color"
+                    >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/register_pharmacy_phone_number"
@@ -268,7 +285,7 @@
                     android:layout_margin="@dimen/padding_mini"
                     android:padding="@dimen/padding_mini"
                     android:hint="@string/register_pharmacy_type"
-                    android:textColorHint="@color/purple_200">
+                    android:textColorHint="@color/custom_accent_color">
 
                     <AutoCompleteTextView
                         android:id="@+id/register_pharmacy_type"
@@ -276,7 +293,7 @@
                         android:layout_height="wrap_content"
                         android:contentDescription="@string/register_pharmacy_type"
                         android:importantForAutofill="no"
-                        android:padding="@dimen/padding_mini"
+                        android:padding="@dimen/padding_maxi"
                         android:labelFor="@id/register_pharmacy_type"
                         android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -288,7 +305,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/padding_mini"
                     android:hint="@string/register_pharmacy_motto"
-                    android:textColorHint="@color/purple_200">
+                    android:textColorHint="@color/custom_accent_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/register_pharmacy_motto"
@@ -306,13 +323,17 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_profile_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/next_text"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/padding_mini"
+            app:backgroundTint="@color/custom_accent_color"
+            android:layout_marginStart="@dimen/padding_mini"
+            android:layout_marginTop="@dimen/padding_mini"
+            android:layout_marginEnd="@dimen/padding_mini"
+            android:layout_marginBottom="@dimen/padding_mini"
             android:padding="@dimen/padding_mini"
-            android:id="@+id/btn_profile_next"/>
+            android:text="@string/next_text" />
 
 
 
